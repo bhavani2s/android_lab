@@ -1,0 +1,116 @@
+main activity.java
+
+package com.example.program7;
+
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
+
+import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        super.onCreateOptionsMenu(menu);
+        CreateMenu(menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        return Menuchoice(item);
+    }
+
+
+
+    private void CreateMenu(Menu menu){
+
+        MenuItem mn1 = menu.add(0,0,0,"sreach");
+        {
+            mn1.setIcon(R.drawable.ic_launcher_background);
+            mn1.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        }
+        MenuItem mn2 = menu.add(0,1,1,"Alert");
+        {
+            mn2.setIcon(R.drawable.ic_launcher_background);
+            mn2.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        }
+        MenuItem mn3 = menu.add(0,2,2,"About");
+        {
+            mn3.setIcon(R.drawable.ic_launcher_background);
+            mn3.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        }
+        MenuItem mn4 = menu.add(0,3,3,"Add");
+        {
+            mn4.setIcon(R.drawable.ic_launcher_background);
+            mn4.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        }
+        MenuItem mn5 = menu.add(0,4,4,"Dlete");{
+            mn5.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        }
+    }
+    private boolean Menuchoice(MenuItem item) {
+        switch (item.getItemId()) {
+            case 0:
+                Toast.makeText(this,"you clicked on sreach",Toast.LENGTH_SHORT).show();
+                return true;
+            case 1:
+                Toast.makeText(this,"you clicked on aleart",Toast.LENGTH_SHORT).show();
+                return true;
+            case 2:
+                Toast.makeText(this,"you clicked on about",Toast.LENGTH_SHORT).show();
+                return true;
+            case 3:
+                Toast.makeText(this,"you clicked on add",Toast.LENGTH_SHORT).show();
+                return true;
+            case 4:
+                Toast.makeText(this,"you clicked on delet",Toast.LENGTH_SHORT).show();
+                return true;
+        }
+        return false;
+    }
+}
+
+
+manifast.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+       android:theme="@style/Theme.AppCompat.DayNight"
+        tools:targetApi="31">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
